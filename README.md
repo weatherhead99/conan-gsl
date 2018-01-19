@@ -2,7 +2,7 @@
 
 | Bintray | Appveyor | Travis |
 |---------|-----------|--------|
-|BINTRAY_BADGE_URL|APPVEYOR_BADGE_URL|https://travis-ci.org/weatherhead99/conan-gsl.svg?branch=testing%2F2.4|
+|BINTRAY_BADGE_URL|APPVEYOR_BADGE_URL|[![Build Status](https://travis-ci.org/weatherhead99/conan-gsl.svg?branch=testing%2F2.4|)][https://travis-ci.org/weatherhead99/conan-gsl.svg?branch=testing%2F2.4|] |
 
 ## Conan.io Information
 
