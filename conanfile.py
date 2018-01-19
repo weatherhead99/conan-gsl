@@ -6,12 +6,13 @@ GSL_2_4_SHA256 = "4d46d07b946e7b31c19bbf33dda6204d7bedc2f5462a1bae1d4013426cd1ce
 class GslConan(ConanFile):
     name = "gsl"
     version = "2.4"
-    license = "<Put the package license here>"
-    url = "<Package recipe repository url here, for issues about the package>"
-    description = "<Description of Gsl here>"
+    license = "MIT"
+    url = "https://github.com/weatherhead99/conan-gsl"
+    description = "The GNU Scientific Library (GSL), a collection of numerical routines for scientific computing"
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False]}
     default_options = "shared=False"
+    exports = ["LICENSE.md"]
     
 
     def source(self):
@@ -52,5 +53,6 @@ class GslConan(ConanFile):
                 self.cpp_info.libs = ["libgsl.a"]
                 
         else:
-            pass
-            #TODO: windows config!
+            self.cpp_info.libs = ["libgsl.lib", "libgslcblas.lib"]
+            if self.options["shared"] == True:
+                self.cpp_info.libs.extend(["libgsl.dll", "libgslcblas.dll"])
