@@ -10,7 +10,7 @@ class GslConan(ConanFile):
     url = "https://github.com/weatherhead99/conan-gsl"
     description = "The GNU Scientific Library (GSL), a collection of numerical routines for scientific computing"
     settings = "os", "compiler", "build_type", "arch"
-    options = {"shared": [True, False], "cpp_exceptions_compat"}
+    options = {"shared": [True, False], "cpp_exceptions_compat" : [True,False]}
     default_options = "shared=False","cpp_exceptions_compat=True"
     exports = ["LICENSE.md"]
     
