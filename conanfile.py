@@ -37,13 +37,14 @@ class GslConan(ConanFile):
         self.copy("*.lib", dst="lib", keep_path=False)
         
         if self.options["shared"] == True:
-            self.copy("*.dll", dst="bin", keep_path=False)
-            self.copy("*.so", dst="lib", keep_path=False)
-            self.copy("*.so.*",dst="lib",keep_path=False)
-            self.copy("*.dylib", dst="lib", keep_path=False)
+            self.copy("*.dll", dst="bin", src=self.build_folder, keep_path=False)
+            self.copy("*.so", dst="lib", src=self.build_folder, keep_path=False)
+            self.copy("*.so.*",dst="lib", src=self.build_folder, keep_path=False)
+            self.copy("*.dylib", dst="lib", src=self.build_folder, keep_path=False)
         else:
-            self.copy("libgsl.a", dst="lib", keep_path=False)
-            self.copy("libgslcblas.a",dst="lib",keep_path=False)
+            print("static build")
+            self.copy(".libs/libgsl.a", dst="lib", src=self.build_folder, keep_path=False)
+            self.copy("cblas/.libs/libgslcblas.a", dst="lib", src=self.build_folder,keep_path=False)
 
     def package_info(self):
         if not self.settings.os == "Windows":
