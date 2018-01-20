@@ -6,7 +6,7 @@ GSL_2_4_SHA256 = "4d46d07b946e7b31c19bbf33dda6204d7bedc2f5462a1bae1d4013426cd1ce
 class GslConan(ConanFile):
     name = "gsl"
     version = "2.4"
-    license = "MIT"
+    license = "GPL-3.0"
     url = "https://github.com/weatherhead99/conan-gsl"
     description = "The GNU Scientific Library (GSL), a collection of numerical routines for scientific computing"
     settings = "os", "compiler", "build_type", "arch"
@@ -38,6 +38,7 @@ class GslConan(ConanFile):
     def package(self):
         self.copy("*.h", dst="include", src=self.build_folder, keep_path=True)
         self.copy("*.lib", dst="lib", keep_path=False)
+        self.copy("COPYING",dst="licenses",src=self.source_folder,keep_path=False)
         
         if self.options["shared"] == True:
             self.copy("*.dll", dst="bin", src=self.build_folder, keep_path=False)
