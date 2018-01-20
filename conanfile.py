@@ -10,8 +10,8 @@ class GslConan(ConanFile):
     url = "https://github.com/weatherhead99/conan-gsl"
     description = "The GNU Scientific Library (GSL), a collection of numerical routines for scientific computing"
     settings = "os", "compiler", "build_type", "arch"
-    options = {"shared": [True, False]}
-    default_options = "shared=False"
+    options = {"shared": [True, False], "cpp_exceptions_compat"}
+    default_options = "shared=False","cpp_exceptions_compat=True"
     exports = ["LICENSE.md"]
     
 
@@ -26,7 +26,10 @@ class GslConan(ConanFile):
             abe = AutoToolsBuildEnvironment(self,win_bash=True)
         else:
             abe = AutoToolsBuildEnvironment(self)
-        
+
+        if self.options["cpp_exceptions_compat"]:
+            abe.flags.append("-fexceptions")
+            
         abe.configure(configure_dir=os.path.join(self.source_folder,
                                                  "gsl-%s" % self.version))
         abe.make()
