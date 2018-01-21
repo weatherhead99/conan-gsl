@@ -31,7 +31,8 @@ class GslConan(ConanFile):
             abe.flags.append("-fexceptions")
             
         abe.configure(configure_dir=os.path.join(self.source_folder,
-                                                 "gsl-%s" % self.version))
+                                                 "gsl-%s" % self.version),
+                      args=["--enable-silent-rules"])
         abe.make()
 
 
