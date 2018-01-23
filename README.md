@@ -2,7 +2,9 @@
 
 | Bintray | Appveyor | Travis |
 |---------|-----------|--------|
-|BINTRAY_BADGE_URL|[![Build status](https://ci.appveyor.com/api/projects/status/vy0pji6vw096mhht?svg=true)](https://ci.appveyor.com/project/weatherhead99/conan-gsl)|[![Build Status](https://travis-ci.org/weatherhead99/conan-gsl.svg?branch=testing%2F2.4)](https://travis-ci.org/weatherhead99/conan-gsl) |
+|BINTRAY_BADGE_URL
+|[![Build status](https://ci.appveyor.com/api/projects/status/github/weatherhead99/conan-gsl?svg=true)](https://ci.appveyor.com/project/weatherhead99/conan-gsl)
+|[![Build Status](https://travis-ci.org/weatherhead99/conan-gsl.svg)](https://travis-ci.org/weatherhead99/conan-gsl) |
 
 
 ## Conan.io Information
